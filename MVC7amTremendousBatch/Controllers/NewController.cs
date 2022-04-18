@@ -118,7 +118,7 @@ namespace MVC7amTremendousBatch.Controllers
             return View(emp);
         }
 
-        public ActionResult SendData5()
+        public ActionResult SendData5(int? id)
         {
             EmployeeModel emp = new EmployeeModel();
             emp.EmpId = 1;
@@ -153,7 +153,7 @@ namespace MVC7amTremendousBatch.Controllers
             return View(listEmp);
         }
 
-        public ActionResult SendData6()
+        public ViewResult SendData6()
         {
             EmployeeModel emp = new EmployeeModel();
             emp.EmpId = 1;
@@ -200,6 +200,18 @@ namespace MVC7amTremendousBatch.Controllers
         }
 
 
+        public RedirectResult SendData7()
+        {
+            return Redirect("http://www.google.com");
+        }
+        public RedirectResult SendData8()
+        {
+            return Redirect("~/new/SendData5?id=1");
+        }
 
+        public RedirectToRouteResult SendData9()
+        {
+            return RedirectToAction("SendData5");
+        }
     }
 }
