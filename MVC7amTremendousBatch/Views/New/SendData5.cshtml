@@ -1,0 +1,24 @@
+﻿@model List<MVC7amTremendousBatch.Models.EmployeeModel>
+@{
+    ViewBag.Title = "SendData5";
+}
+
+<h2>SendData5</h2>
+
+
+
+<table class="table table-bordered table-condensed table-striped">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Salary</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.EmpId</td>
+            <td>@item.EmpName</td>
+            <td>@item.EmpSalary</td>
+        </tr>
+    }
+</table>
