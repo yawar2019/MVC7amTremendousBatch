@@ -164,6 +164,10 @@
     <Content Include="Views\New\SendData4.cshtml" />
     <Content Include="Views\New\SendData5.cshtml" />
     <Content Include="Views\New\SendData6.cshtml" />
+    <Content Include="Views\New\getPartialData.cshtml" />
+    <Content Include="Views\Shared\_CricketPartialView.cshtml" />
+    <Content Include="Views\New\getPartialData2.cshtml" />
+    <Content Include="Views\Shared\_myEmpPartialView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
