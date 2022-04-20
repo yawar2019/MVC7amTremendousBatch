@@ -293,5 +293,41 @@ namespace MVC7amTremendousBatch.Controllers
 
             return View(listEmp);
         }
+
+
+        public PartialViewResult getPartialData3()
+        {
+            EmployeeModel emp = new EmployeeModel();
+            emp.EmpId = 1;
+            emp.EmpName = "prashanth";
+            emp.EmpSalary = 450000;
+
+
+
+
+            EmployeeModel emp1 = new EmployeeModel();
+            emp1.EmpId = 2;
+            emp1.EmpName = "Gauri";
+            emp1.EmpSalary = 650000;
+
+
+
+
+            EmployeeModel emp2 = new EmployeeModel();
+            emp2.EmpId = 3;
+            emp2.EmpName = "sadam";
+            emp2.EmpSalary = 750000;
+
+
+            List<EmployeeModel> listEmp = new List<EmployeeModel>();
+            listEmp.Add(emp);
+            listEmp.Add(emp1);
+            listEmp.Add(emp2);
+
+
+            return PartialView("_myEmpPartialView", listEmp);
+        }
+
+
     }
 }

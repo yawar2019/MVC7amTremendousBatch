@@ -6,4 +6,22 @@
 
 <h2>getPartialData2</h2>
 
-@Html.Partial("_myEmpPartialView",Model)
+@{
+
+    var a= Html.Partial("_myEmpPartialView", Model);
+    int r = 10;
+    if (r == 10) {
+
+        @a
+    }
+
+        }
+
+
+@{
+
+ Html.RenderPartial("_myEmpPartialView", Model);
+    
+    } 
+
+
