@@ -36,5 +36,39 @@ namespace AdoDotnetExample.Models
 
             return listEmp;
         }
+
+        public int SaveEmployee(EmployeeModel emp)
+
+        {
+             
+            SqlCommand cmd = new SqlCommand("sp_CreateEmployee", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            con.Open();
+            cmd.Parameters.AddWithValue("@EmpName", emp.EmpName);
+            cmd.Parameters.AddWithValue("@EmpSalary", emp.EmpSalary);
+            int result = cmd.ExecuteNonQuery();
+            con.Close();
+            return result;
+
+        }
+
+        public EmployeeModel GetEmployeesById(int? id)
+        {
+            SqlCommand cmd = new SqlCommand("sp_getNeerjaEmployeeDetailsById", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@EmpId",id);
+
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+            EmployeeModel emp = new EmployeeModel();
+            foreach (DataRow dr in dt.Rows)
+            {
+                emp.EmpId = Convert.ToInt32(dr["EmpId"]);
+                emp.EmpName = Convert.ToString(dr["EmpName"]);
+                emp.EmpSalary = Convert.ToInt32(dr["EmpSalary"]);  
+            }
+            return emp;
+        }
     }
 }
