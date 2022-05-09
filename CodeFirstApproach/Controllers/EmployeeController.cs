@@ -1,6 +1,7 @@
 ﻿using CodeFirstApproach.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -39,6 +40,36 @@ namespace CodeFirstApproach.Controllers
         [HttpPost]
         public ActionResult Edit(EmployeeModel emp)
         {
+            db.Entry(emp).State =  EntityState.Modified;
+
+            int result = db.SaveChanges();
+            if (result > 0)
+            {
+                return RedirectToAction("Index");
+            }
+
+
+            return View();
+        }
+
+        public ActionResult Delete(int? id)
+        {
+            EmployeeModel emp = db.EmployeeModels.Find(id);
+            return View(emp);
+        }
+        [HttpPost]
+        [ActionName("Delete")]
+        public ActionResult DeleteConfirmed(int? id)
+        {
+            EmployeeModel emp = db.EmployeeModels.Find(id);
+            db.EmployeeModels.Remove(emp);
+            int result = db.SaveChanges();
+            if (result > 0)
+            {
+                return RedirectToAction("Index");
+            }
+
+
             return View();
         }
     }
