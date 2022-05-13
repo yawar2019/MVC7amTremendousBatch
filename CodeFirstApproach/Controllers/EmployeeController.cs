@@ -17,6 +17,22 @@ namespace CodeFirstApproach.Controllers
             return View(db.EmployeeModels.ToList());
         }
 
+        public ActionResult EmployeeDept()
+        {
+            var EmpDetails =(from emp in db.EmployeeModels 
+                             join 
+                             dept in db.DepartmentModels
+                             on emp.DeptId equals dept.DeptId
+                             select new EmpDept
+                             {
+                                 EmpName=emp.EmpName,
+                                 EmpSalary=emp.EmpSalary,
+                                 DeptName=dept.DeptName
+                             }
+                             ).ToList();
+            return View(EmpDetails);
+        }
+
         public ActionResult Create()
         {
             return View();

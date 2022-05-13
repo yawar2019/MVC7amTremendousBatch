@@ -9,12 +9,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{74A04276-8E90-435F-886E-42C15C6C2E7F}</ProjectGuid>
+    <ProjectGuid>{FD274E8B-D83D-4B67-839D-5CA3605EDBA4}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CodeFirstApproach</RootNamespace>
-    <AssemblyName>CodeFirstApproach</AssemblyName>
+    <RootNamespace>ModelFirstApproach</RootNamespace>
+    <AssemblyName>ModelFirstApproach</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -43,14 +43,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -84,6 +76,8 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -125,55 +119,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\Site.css" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
-    <Content Include="scripts\bootstrap.js" />
-    <Content Include="scripts\bootstrap.min.js" />
-    <None Include="scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="scripts\jquery-1.10.2.js" />
-    <Content Include="scripts\jquery-1.10.2.min.js" />
-    <None Include="scripts\jquery.validate-vsdoc.js" />
-    <Content Include="scripts\jquery.validate.js" />
-    <Content Include="scripts\jquery.validate.min.js" />
-    <Content Include="scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="scripts\modernizr-2.6.2.js" />
-    <Content Include="Web.config">
-      <SubType>Designer</SubType>
-    </Content>
+    <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202205070153537_InitialCreate.cs" />
-    <Compile Include="Migrations\202205070153537_InitialCreate.Designer.cs">
-      <DependentUpon>202205070153537_InitialCreate.cs</DependentUpon>
+    <Compile Include="Models\EmployeeModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmployeeModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202205110217489_testmigration.cs" />
-    <Compile Include="Migrations\202205110217489_testmigration.Designer.cs">
-      <DependentUpon>202205110217489_testmigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202205130158404_Updated_Designation.cs" />
-    <Compile Include="Migrations\202205130158404_Updated_Designation.Designer.cs">
-      <DependentUpon>202205130158404_Updated_Designation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202205130203034_AddedTableDepartment.cs" />
-    <Compile Include="Migrations\202205130203034_AddedTableDepartment.Designer.cs">
-      <DependentUpon>202205130203034_AddedTableDepartment.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\DepartmentModel.cs" />
-    <Compile Include="Models\EmpDept.cs" />
-    <Compile Include="Models\EmployeeContext.cs" />
-    <Compile Include="Models\EmployeeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -182,17 +142,13 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Employee\Index.cshtml" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Employee\Create.cshtml" />
-    <Content Include="Views\Employee\Edit.cshtml" />
-    <Content Include="Views\Employee\Delete.cshtml" />
-    <Content Include="Views\Employee\EmployeeDept.cshtml" />
+    <EntityDeploy Include="Models\EmployeeModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EmployeeModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\EmployeeModel.edmx.diagram">
+      <DependentUpon>EmployeeModel.edmx</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -202,20 +158,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202205070153537_InitialCreate.resx">
-      <DependentUpon>202205070153537_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202205110217489_testmigration.resx">
-      <DependentUpon>202205110217489_testmigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202205130158404_Updated_Designation.resx">
-      <DependentUpon>202205130158404_Updated_Designation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202205130203034_AddedTableDepartment.resx">
-      <DependentUpon>202205130203034_AddedTableDepartment.cs</DependentUpon>
-    </EmbeddedResource>
+    <Folder Include="Controllers\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -230,9 +173,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>52321</DevelopmentServerPort>
+          <DevelopmentServerPort>63779</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:52321/</IISUrl>
+          <IISUrl>http://localhost:63779/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

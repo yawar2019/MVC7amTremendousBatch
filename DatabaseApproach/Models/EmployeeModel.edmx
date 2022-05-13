@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="EmployeeDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="EmployeeDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="tbl_Employee">
           <Key>
             <PropertyRef Name="EmpId" />
@@ -12,12 +12,12 @@
           <Property Name="EmpId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="EmpName" Type="varchar" MaxLength="50" />
           <Property Name="EmpSalary" Type="int" />
+          <Property Name="Designation" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityContainer Name="EmployeeDbModelStoreContainer">
           <EntitySet Name="tbl_Employee" EntityType="Self.tbl_Employee" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="EmployeeDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -28,6 +28,7 @@
           <Property Name="EmpId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="EmpName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="EmpSalary" Type="Int32" />
+          <Property Name="Designation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityContainer Name="EmployeeDbEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="tbl_Employee" EntityType="Self.tbl_Employee" />
@@ -41,6 +42,7 @@
           <EntitySetMapping Name="tbl_Employee">
             <EntityTypeMapping TypeName="EmployeeDbModel.tbl_Employee">
               <MappingFragment StoreEntitySet="tbl_Employee">
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
                 <ScalarProperty Name="EmpId" ColumnName="EmpId" />
                 <ScalarProperty Name="EmpName" ColumnName="EmpName" />
                 <ScalarProperty Name="EmpSalary" ColumnName="EmpSalary" />

@@ -17,5 +17,6 @@ namespace DatabaseApproach.Models
         public int EmpId { get; set; }
         public string EmpName { get; set; }
         public Nullable<int> EmpSalary { get; set; }
+        public string Designation { get; set; }
     }
 }
