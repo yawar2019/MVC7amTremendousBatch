@@ -12,6 +12,8 @@ namespace DatabaseApproach.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class EmployeeDbEntities1 : DbContext
     {
@@ -26,5 +28,23 @@ namespace DatabaseApproach.Models
         }
     
         public virtual DbSet<tbl_Employee> tbl_Employee { get; set; }
+    
+        public virtual int spr_insertEmpDetails(string empName, Nullable<int> empSalary)
+        {
+            var empNameParameter = empName != null ?
+                new ObjectParameter("EmpName", empName) :
+                new ObjectParameter("EmpName", typeof(string));
+    
+            var empSalaryParameter = empSalary.HasValue ?
+                new ObjectParameter("EmpSalary", empSalary) :
+                new ObjectParameter("EmpSalary", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spr_insertEmpDetails", empNameParameter, empSalaryParameter);
+        }
+    
+        public virtual ObjectResult<usp_employee_Result> usp_employee()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_employee_Result>("usp_employee");
+        }
     }
 }

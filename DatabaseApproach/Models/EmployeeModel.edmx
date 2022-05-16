@@ -14,6 +14,11 @@
           <Property Name="EmpSalary" Type="int" />
           <Property Name="Designation" Type="varchar" MaxLength="50" />
         </EntityType>
+        <Function Name="spr_insertEmpDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="EmpName" Type="varchar" Mode="In" />
+          <Parameter Name="EmpSalary" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_employee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="EmployeeDbModelStoreContainer">
           <EntitySet Name="tbl_Employee" EntityType="Self.tbl_Employee" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
@@ -32,7 +37,18 @@
         </EntityType>
         <EntityContainer Name="EmployeeDbEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="tbl_Employee" EntityType="Self.tbl_Employee" />
+          <FunctionImport Name="spr_insertEmpDetails">
+            <Parameter Name="EmpName" Mode="In" Type="String" />
+            <Parameter Name="EmpSalary" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_employee" ReturnType="Collection(EmployeeDbModel.usp_employee_Result)" />
         </EntityContainer>
+        <ComplexType Name="usp_employee_Result">
+          <Property Type="Int32" Name="EmpId" Nullable="false" />
+          <Property Type="String" Name="EmpName" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="EmpSalary" Nullable="true" />
+          <Property Type="String" Name="Designation" Nullable="true" MaxLength="50" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -49,6 +65,17 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="spr_insertEmpDetails" FunctionName="EmployeeDbModel.Store.spr_insertEmpDetails" />
+          <FunctionImportMapping FunctionImportName="usp_employee" FunctionName="EmployeeDbModel.Store.usp_employee">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EmployeeDbModel.usp_employee_Result">
+                <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+                <ScalarProperty Name="EmpName" ColumnName="EmpName" />
+                <ScalarProperty Name="EmpSalary" ColumnName="EmpSalary" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

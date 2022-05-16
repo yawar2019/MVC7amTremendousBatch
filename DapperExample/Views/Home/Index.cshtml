@@ -1,4 +1,4 @@
-﻿@model IEnumerable<DatabaseApproach.Models.usp_employee_Result>
+﻿@model IEnumerable<DapperExample.Models.EmployeeModel>
 
 @{
     ViewBag.Title = "Index";
@@ -12,6 +12,9 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.EmpId)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.EmpName)
         </th>
         <th>
@@ -23,15 +26,18 @@
 @foreach (var item in Model) {
     <tr>
         <td>
+            @Html.DisplayFor(modelItem => item.EmpId)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.EmpName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.EmpSalary)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.EmpId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.EmpId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.EmpId })
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
         </td>
     </tr>
 }

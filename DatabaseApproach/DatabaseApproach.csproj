@@ -184,6 +184,9 @@
     <Compile Include="Models\tbl_Employee.cs">
       <DependentUpon>EmployeeModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\usp_employee_Result.cs">
+      <DependentUpon>EmployeeModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
