@@ -328,6 +328,17 @@ namespace MVC7amTremendousBatch.Controllers
             return PartialView("_myEmpPartialView", listEmp);
         }
 
+        public ActionResult ViewBagAndViewData()
+        {
+            ViewBag.id = 1211; ;
+            return View();
+        }
+        public ActionResult ViewBagAndViewData2()
+        {
+            int a =Convert.ToInt32(ViewData["id"]);
+            return Content("test");
+        }
+
         //hi shravani
     }
 }
