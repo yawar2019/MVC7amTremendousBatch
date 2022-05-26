@@ -339,6 +339,28 @@ namespace MVC7amTremendousBatch.Controllers
             return Content("test");
         }
 
-        //hi shravani
+        public ActionResult TempDataExample1()
+        {
+            TempData["id"] = 1211;
+            return RedirectToAction("TempDataExample2");
+        }
+        public ActionResult TempDataExample2(FormCollection frm)//frm["EmpName"]
+        {
+             ViewBag.test = Convert.ToInt32(TempData.Peek("id"));//used initialize and retain
+            //TempData.Keep();
+
+            return View();
+        }
+
+        public ActionResult TestLayoutAndSection()
+        {
+            return View();
+        }
+
+        public ActionResult HtmlHelperExample()
+        {
+            return View();
+        }
+       
     }
 }

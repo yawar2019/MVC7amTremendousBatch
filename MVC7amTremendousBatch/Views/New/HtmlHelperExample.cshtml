@@ -1,0 +1,12 @@
+﻿@model MVC7amTremendousBatch.Models.EmployeeModel
+@{
+    ViewBag.Title = "HtmlHelperExample";
+}
+
+<h2>HtmlHelperExample</h2>
+
+<input type="text" name="name" value="" /><br />
+@Html.TextBox("fname","john")<br />
+@Html.TextBoxFor(x=>x.EmpName)<br />
+@Html.EditorFor(x=>x.EmpName)
+@Html.EditorForModel(Model)

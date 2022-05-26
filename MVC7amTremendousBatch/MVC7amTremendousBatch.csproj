@@ -171,6 +171,9 @@
     <Content Include="Views\New\getPartialData2.cshtml" />
     <Content Include="Views\Shared\_myEmpPartialView.cshtml" />
     <Content Include="Views\New\ViewBagAndViewData.cshtml" />
+    <Content Include="Views\New\TempDataExample2.cshtml" />
+    <Content Include="Views\New\TestLayoutAndSection.cshtml" />
+    <Content Include="Views\New\HtmlHelperExample.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
