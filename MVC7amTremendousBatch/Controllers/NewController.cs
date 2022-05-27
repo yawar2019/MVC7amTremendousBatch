@@ -359,6 +359,8 @@ namespace MVC7amTremendousBatch.Controllers
 
         public ActionResult HtmlHelperExample()
         {
+            CountryEntities db = new Models.CountryEntities();
+            ViewBag.Department = new SelectList(db.Departments, "DeptId", "DeptName",3);
             return View();
         }
        
