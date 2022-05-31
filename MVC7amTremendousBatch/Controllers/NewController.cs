@@ -78,17 +78,13 @@ namespace MVC7amTremendousBatch.Controllers
             emp.EmpId = 1;
             emp.EmpName = "prashanth";
             emp.EmpSalary = 450000;
-
-          
-
+            
 
             EmployeeModel emp1 = new EmployeeModel();
             emp1.EmpId = 2;
             emp1.EmpName = "Gauri";
             emp1.EmpSalary = 650000;
-
-          
-
+            
 
             EmployeeModel emp2 = new EmployeeModel();
             emp2.EmpId = 3;
@@ -132,15 +128,11 @@ namespace MVC7amTremendousBatch.Controllers
             emp1.EmpId = 2;
             emp1.EmpName = "Gauri";
             emp1.EmpSalary = 650000;
-
-
-
-
+            
             EmployeeModel emp2 = new EmployeeModel();
             emp2.EmpId = 3;
             emp2.EmpName = "sadam";
             emp2.EmpSalary = 750000;
-
 
             List<EmployeeModel> listEmp = new List<EmployeeModel>();
             listEmp.Add(emp);
@@ -267,17 +259,11 @@ namespace MVC7amTremendousBatch.Controllers
             emp.EmpId = 1;
             emp.EmpName = "prashanth";
             emp.EmpSalary = 450000;
-
-
-
-
+            
             EmployeeModel emp1 = new EmployeeModel();
             emp1.EmpId = 2;
             emp1.EmpName = "Gauri";
             emp1.EmpSalary = 650000;
-
-
-
 
             EmployeeModel emp2 = new EmployeeModel();
             emp2.EmpId = 3;
@@ -363,6 +349,57 @@ namespace MVC7amTremendousBatch.Controllers
             ViewBag.Department = new SelectList(db.Departments, "DeptId", "DeptName",3);
             return View();
         }
-       
+
+        [HttpPost]
+        public ActionResult HtmlHelperExample(RegistrationModel reg)
+        {
+            CountryEntities db = new Models.CountryEntities();
+            ViewBag.Department = new SelectList(db.Departments, "DeptId", "DeptName", 3);
+            return View();
+        }
+
+        public JsonResult GetData(int? id) {
+
+            EmployeeModel emp = new Models.EmployeeModel();
+            if (id == 1)
+            {
+                emp.EmpId = 1;
+                emp.EmpName = "Dhans";
+                emp.EmpSalary = 18922;
+            }
+            else
+            {
+                emp.EmpId = 3;
+                emp.EmpName = "Kartic";
+                emp.EmpSalary = 28922;
+            }
+            return Json(emp,JsonRequestBehavior.AllowGet);
+
+        }
+
+        public ActionResult ValidationControl()
+        {
+            CountryEntities db = new Models.CountryEntities();
+            ViewBag.Department = new SelectList(db.Departments, "DeptId", "DeptName", 3);
+            return View();
+        }
+        [HttpPost]
+        public ActionResult ValidationControl(RegistrationModel reg)
+        {
+            CountryEntities db = new Models.CountryEntities();
+            ViewBag.Department = new SelectList(db.Departments, "DeptId", "DeptName", 3);
+
+            if (ModelState.IsValid)
+            {
+               
+                return RedirectToAction("ValidationControl");
+            }
+            else
+            {
+                return View(reg);
+            }
+
+           
+        }
     }
 }

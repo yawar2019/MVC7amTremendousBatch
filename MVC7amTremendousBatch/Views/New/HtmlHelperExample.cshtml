@@ -1,21 +1,26 @@
 ﻿@model MVC7amTremendousBatch.Models.EmployeeModel
+@using MVC7amTremendousBatch.Models
+
+
 @{
     ViewBag.Title = "HtmlHelperExample";
 }
 
 <h2>HtmlHelperExample</h2>
 
-<input type="text" name="name" value="" style="background-color: chartreuse" class="form-control" onclick="fun()" /><br />
-@Html.TextBox("fname","john",new { @style = "background-color:burlywood",@class="form-control",@id="fullName", @onclick = "fun()" })<br />
-@Html.Password("pwd",null,null)<br />
-<span>Gender</span>@Html.RadioButton("Gender","Male",true)<span>Male</span>
+@*<input type="text" name="name" value="" style="background-color: chartreuse" class="form-control" onclick="fun()" /><br />*@
+@using (Html.BeginForm())
+{
+@Html.TextBox("fname", "john", new { @style = "background-color:burlywood", @class = "form-control", @id = "fullName", @onclick = "fun()" })<br />
+@Html.Password("pwd", null, null)<br />
+<span>Gender</span>@Html.RadioButton("Gender", "Male", true)<span>Male</span>
                    @Html.RadioButton("Gender", "FeMale")<span>FeMale</span><br />
 
 <span>Courses</span>@Html.CheckBox("java")<span>Java</span>
-                    @Html.CheckBox("Dotnet",true)<span>Dotnet</span>
+                    @Html.CheckBox("Dotnet", true)<span>Dotnet</span>
 
-<span>Country</span>
-@Html.DropDownList("Country",new List<SelectListItem>(){
+<span>Dept</span>
+@*@Html.DropDownList("Country", new List<SelectListItem>(){
 
     new SelectListItem {Text="India",Value="1" },
     new SelectListItem {Text="USA",Value="2",Selected=true },
@@ -23,21 +28,60 @@
 
 
 
-               },"Select Country")<br />
+               }, "Select Country")<br />
 
-@Html.DropDownList("Department")<br />
-@Html.DropDownList("Dept",(IEnumerable<SelectListItem>)ViewBag.Department)
+@Html.DropDownList("Department")<br />*@
+@Html.DropDownList("Dept", (IEnumerable<SelectListItem>)ViewBag.Department)
 
-@Html.TextArea("Address","Hyd",5,10,null)
+@Html.TextArea("Address", "Hyd", 5, 10, null)
+
+    <input type="submit" name="name" value="Save" class="btn btn-success"/>
+}
+<p id="displaydata"></p>
+
+<br />
+
+ 
+@Html.createUrControl("text")
+@Html.createUrControl("checkbox")
+@Html.createUrControl("radio")
+
+
+    @helper getdata(string Name)
+        {
+    <label>@Name</label>
+    }
+@getdata("Anil")
 
 @*@Html.TextBoxFor(x=>x.EmpName)<br />
     @Html.EditorFor(x=>x.EmpName)
     @Html.EditorForModel(Model)*@
-
+<script src="~/scripts/jquery-1.10.2.min.js"></script>
 
 <script>
     function fun()
     {
         alert("Hello World");
     }
+
+
+    $('#Dept').on("change", function () {
+
+        alert($('#Dept option:selected').text());
+
+        $.ajax({
+            url: 'http://localhost:51412/New/GetData?id='+$('#Dept option:selected').val(),
+            dataType: 'json',
+            type:'GET',
+            success:function(result)
+            {
+                debugger;
+                document.getElementById('displaydata').innerHTML = result.EmpName + ',' + result.EmpSalary;
+            }
+
+
+        })
+
+    })
+
 </script>
