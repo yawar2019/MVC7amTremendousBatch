@@ -1,4 +1,5 @@
-﻿using MVC7amTremendousBatch.Models;
+﻿using MVC7amTremendousBatch.CustomFilter;
+using MVC7amTremendousBatch.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,14 +8,17 @@ using System.Web.Mvc;
 
 namespace MVC7amTremendousBatch.Controllers
 {
+   
+
     public class NewController : Controller
     {
         // GET: New
         //Deepika from London
-        public string Welcome()
+        [MyFirstActionFilter]
+        public ActionResult Welcome()
         {
-
-            return "Hello World";
+            ViewBag.StudentName = "Anil";
+            return View();
         }
 
         public ActionResult Index()
@@ -383,6 +387,7 @@ namespace MVC7amTremendousBatch.Controllers
             ViewBag.Department = new SelectList(db.Departments, "DeptId", "DeptName", 3);
             return View();
         }
+
         [HttpPost]
         public ActionResult ValidationControl(RegistrationModel reg)
         {
@@ -401,5 +406,12 @@ namespace MVC7amTremendousBatch.Controllers
 
            
         }
+
+        public ActionResult Filters()
+        {
+            MyFirstActionFilter obj = new CustomFilter.MyFirstActionFilter();
+            return View();
+        }
+
     }
 }

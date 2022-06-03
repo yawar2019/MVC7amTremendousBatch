@@ -7,6 +7,9 @@
       <Diagram DiagramId="96ac9fd749be47579c5e40987a1013f8" Name="Diagram1">
         <EntityTypeShape EntityType="EmployeeModel.Department" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="EmployeeModel.employeeDetail" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmployeeModel.Role" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="EmployeeModel.UserDetail" Width="1.5" PointX="0.75" PointY="5.75" />
+        <EntityTypeShape EntityType="EmployeeModel.UserRoleMapping" Width="2.5" PointX="4" PointY="5.625" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

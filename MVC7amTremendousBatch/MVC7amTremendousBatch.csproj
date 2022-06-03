@@ -164,12 +164,17 @@
     <Content Include="scripts\modernizr-2.6.2.js" />
     <Content Include="tempdata.txt" />
     <Content Include="viewBAg.txt" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\NewController.cs" />
+    <Compile Include="CustomFilter\CustomRoleProvider.cs" />
+    <Compile Include="CustomFilter\MyFirstActionFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -199,6 +204,15 @@
     </Compile>
     <Compile Include="Models\EmployeeModel.cs" />
     <Compile Include="Models\RegistrationModel.cs" />
+    <Compile Include="Models\Role.cs">
+      <DependentUpon>CountryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserDetail.cs">
+      <DependentUpon>CountryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserRoleMapping.cs">
+      <DependentUpon>CountryModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -230,6 +244,12 @@
     <Content Include="Views\New\TestLayoutAndSection.cshtml" />
     <Content Include="Views\New\HtmlHelperExample.cshtml" />
     <Content Include="Views\New\ValidationControl.cshtml" />
+    <Content Include="Views\New\Filters.cshtml" />
+    <Content Include="Views\New\Welcome.cshtml" />
+    <Content Include="Views\Login\Dashboard.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Login\ContactUs.cshtml" />
+    <Content Include="Views\Login\AboutUs.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

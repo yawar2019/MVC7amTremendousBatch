@@ -11,7 +11,7 @@ namespace MVC7amTremendousBatch
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
-            routes.IgnoreRoute("new/Welcome");
+            //routes.IgnoreRoute("new/Welcome");
 
             routes.MapMvcAttributeRoutes();
 
