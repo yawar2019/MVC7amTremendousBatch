@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC7amTremendousBatch", "MVC7amTremendousBatch\MVC7amTremendousBatch.csproj", "{74EFD490-B55C-43F8-881C-4D175C94BCFC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3ED31BCD-4DAF-4D3C-BC49-B51EFAC70F62} = {3ED31BCD-4DAF-4D3C-BC49-B51EFAC70F62}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdoDotnetExample", "AdoDotnetExample\AdoDotnetExample.csproj", "{578E0392-C7AE-462D-8565-B6B4665921D2}"
 EndProject
@@ -14,6 +17,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeFirstApproach", "CodeFirstApproach\CodeFirstApproach.csproj", "{74A04276-8E90-435F-886E-42C15C6C2E7F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelFirstApproach", "ModelFirstApproach\ModelFirstApproach.csproj", "{FD274E8B-D83D-4B67-839D-5CA3605EDBA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HandleErrorExample", "HandleErrorExample\HandleErrorExample.csproj", "{19E170CA-3C07-4C5C-8201-4768DDF6B944}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebServiceExample", "WebServiceExample\WebServiceExample.csproj", "{3ED31BCD-4DAF-4D3C-BC49-B51EFAC70F62}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +52,14 @@ Global
 		{FD274E8B-D83D-4B67-839D-5CA3605EDBA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD274E8B-D83D-4B67-839D-5CA3605EDBA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FD274E8B-D83D-4B67-839D-5CA3605EDBA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19E170CA-3C07-4C5C-8201-4768DDF6B944}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19E170CA-3C07-4C5C-8201-4768DDF6B944}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19E170CA-3C07-4C5C-8201-4768DDF6B944}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19E170CA-3C07-4C5C-8201-4768DDF6B944}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3ED31BCD-4DAF-4D3C-BC49-B51EFAC70F62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3ED31BCD-4DAF-4D3C-BC49-B51EFAC70F62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3ED31BCD-4DAF-4D3C-BC49-B51EFAC70F62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3ED31BCD-4DAF-4D3C-BC49-B51EFAC70F62}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

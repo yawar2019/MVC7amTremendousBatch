@@ -60,5 +60,12 @@ namespace MVC7amTremendousBatch.Controllers
         {
             return View();
         }
+        [OutputCache(Duration =20,Location =System.Web.UI.OutputCacheLocation.Client)]
+        public ActionResult CacheExample()
+        {
+            return View();
+        }
+
+    
     }
 }

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using MVC7amTremendousBatch.ServiceReference1;
 namespace MVC7amTremendousBatch.Controllers
 {
    
@@ -413,5 +413,10 @@ namespace MVC7amTremendousBatch.Controllers
             return View();
         }
 
+        public ActionResult ShowServiceData()
+        {
+            WebService1SoapClient obj = new WebService1SoapClient();
+            return Content(obj.Add(12,78).ToString());
+        }
     }
 }
