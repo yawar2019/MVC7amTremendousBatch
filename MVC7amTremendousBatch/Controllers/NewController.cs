@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MVC7amTremendousBatch.ServiceReference1;
+using MVC7amTremendousBatch.ServiceReference2;
 namespace MVC7amTremendousBatch.Controllers
 {
    
@@ -415,8 +416,10 @@ namespace MVC7amTremendousBatch.Controllers
 
         public ActionResult ShowServiceData()
         {
-            WebService1SoapClient obj = new WebService1SoapClient();
-            return Content(obj.Add(12,78).ToString());
+            //WebService1SoapClient obj = new WebService1SoapClient();
+            ServiceReference3.Service1Client obj = new ServiceReference3.Service1Client("WSHttpBinding_IService1");
+            ServiceReference3.Service1Client obj1 = new ServiceReference3.Service1Client("NetTcpBinding_IService1");
+            return Content(obj.Add(12,78).ToString()+ obj1.Add(12, 78).ToString());
         }
     }
 }
