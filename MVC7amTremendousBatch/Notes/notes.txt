@@ -1,2 +1,3 @@
 ﻿https://supriyatest.blogspot.com/
 https://www.youtube.com/watch?v=8cgmu4Tf34U&t=150s
+https://docs.microsoft.com/en-us/aspnet/web-api/overview/security/enabling-cross-origin-requests-in-web-api
