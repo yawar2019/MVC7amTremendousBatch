@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewBag.Title = "GetData";
+}
+
+<h2>GetData</h2>
+
+
+
+<table id="table-1">
+    <thead>
+        <tr>
+            <th>
+                Employee Id
+            </th>
+            <th>
+                Employee Name
+            </th>
+            <th>
+                Employee Salary
+            </th>
+        </tr>
+    </thead>
+</table>
+<br />
+<form>
+    EmpName <input type="text" name="EmpName" id="EmpName" /><br />
+    EmpSalary <input type="text" name="EmpSalary" id="EmpSalary" /><br />
+
+    <p id="Save">Click me</p>
+</form>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+<script>
+        onload = function showdata() {
+            $.ajax({
+                url: "http://localhost:55143/api/employeeDetailsApi",
+                type: "Get",
+                datatype: "json",
+                success: function (result) {
+                    alert(result);
+                    $.each(result, function (i, key) {
+
+                        $("#table-1 tr:last").after('<tr><td>' + key.EmpId + '</td><td>' + key.EmpName + '</td><td>' + key.EmpSalary + '</td></tr>');
+                    });
+                }
+            });
+        }
+
+
+        $('#Save').click(function () {
+            var url = "http://localhost:55143/api/employeeDetailsApi";
+            var Name = $("#EmpName").val();
+            var Salary = $("#EmpSalary").val();
+            $.post(url, {
+                EmpName: Name,
+                EmpSalary: Salary
+            }, function (data) {
+                alert("Successfully inserted");
+            });
+        })
+    </script>

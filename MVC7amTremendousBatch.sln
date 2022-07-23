@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebServiceExample", "WebSer
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfService1", "WcfService1\WcfService1.csproj", "{7A403F52-B388-4D63-8E5D-F70C5F08C7EF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApi\WebApi.csproj", "{D7A1AA6D-1A37-4FAF-9036-DA6EFB508528}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,6 +69,10 @@ Global
 		{7A403F52-B388-4D63-8E5D-F70C5F08C7EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A403F52-B388-4D63-8E5D-F70C5F08C7EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A403F52-B388-4D63-8E5D-F70C5F08C7EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7A1AA6D-1A37-4FAF-9036-DA6EFB508528}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7A1AA6D-1A37-4FAF-9036-DA6EFB508528}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7A1AA6D-1A37-4FAF-9036-DA6EFB508528}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7A1AA6D-1A37-4FAF-9036-DA6EFB508528}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
